@@ -1,6 +1,16 @@
 HTML CodeStyle
 ====================
-  - [General](#general)
+  - [Syntax](#syntax)
+  - [HTML5 doctype](#html5-doctype)
+  - [Language attribute](#language-attribute)
+  - [IE compatibility mode](#ie-compatibility-mode)
+  - [Character encoding](#character-encoding)
+  - [CSS and JavaScript includes](#css-and-javascript-includes)
+  - [Practicality over purity](#practicality-over-purity)
+  - [Attribute order](#attribute-order)
+  - [Boolean attributes](#boolean-attributes)
+  - [Reducing markup](#reducing-markup)
+  - [JavaScript generated markup](#javascript-generated-markup)
 
 
 ##Syntax
