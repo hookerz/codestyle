@@ -35,6 +35,7 @@ JavaScript CodeStyle
   - [Classes](#classes)
   - [node.js](#nodejs)
     - [Importing Modules](#importing-modules)
+  - [Modules](#modules)
 
 ##General
 
@@ -598,3 +599,44 @@ This rule does not apply to modules that are imported "on demand".
 1. Standard node.js modules (i.e. fs, util, etc.).
 2. External lib modules.
 3. Modules of the current application.
+
+##Modules
+
+Independent functions must be split into loosely-coupled, discrete modules. No jackOfAllTrades.js allowed. The best way to accomplish this in the browser is through the use of Browserify, which allows us to develop Node.js-like modules that are packaged together in the build process.
+
+The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
+Always declare 'use strict'; at the top of the module.
+require statements should be grouped at the top of the module; module.exports should come at the end
+
+```javascript
+'use strict';
+
+var config = require('./config');
+
+function Greeter(greeting) {
+   this.greeting = greeting || config.greeting;
+}
+
+Greeter.prototype.getGreeting = function () {
+   return this.greeting;
+};
+
+module.exports = Greeter;
+```
+
+There should be a config module that exports an object defining properties that are shared throughout the project.
+
+```javascript
+'use strict';
+
+var config = {
+   greeting: 'Hello World!',
+   environment: 'unknown',
+   trackingId: '12365534'
+};
+
+module.exports = config;
+```
+
+To learn more about how Browserify works, check out http://browserify.org/articles.html 
+
