@@ -604,7 +604,7 @@ This rule does not apply to modules that are imported "on demand".
 
 Independent functions must be split into loosely-coupled, discrete modules. No jackOfAllTrades.js allowed. The best way to accomplish this in the browser is through the use of Browserify, which allows us to develop Node.js-like modules that are packaged together in the build process.
 
-The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
+The file should be named in lower case, separated by dashes, live in a folder with the same name, and match the name of the single export (`example-file-name.js`). 
 Always declare 'use strict'; at the top of the module.
 require statements should be grouped at the top of the module; module.exports should come at the end
 
