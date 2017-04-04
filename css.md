@@ -1,14 +1,14 @@
-#CSS Style Guide
+# CSS Style Guide
 
-##Introduction
+## Introduction
 
 CSS can feel like a cumbersome step when you’re developing a webapp but it’s important to get it right. In general, always write your CSS with the idea that someone else may have to jump in and work on it at any time. Within this guide you will learn the general rules, syntax, formatting, and file structure for writing CSS at Hook. We’re always open to suggestions as this is more of a living document than writing etched in stone, so be sure to speak up if you see something that could be improved.
 
 If you come up with any questions while reading, feel free to hit up your boss. They’ll point you in the right direction or hook you up with someone to ping whenever something comes up.
 
-##General
+## General
 
-First off, we use Stylus. Read through the documentation here: https://learnboost.github.io/stylus/
+First off, we use SCSS. Read through the documentation here: http://sass-lang.com/documentation/file.SASS_REFERENCE.html#syntax
 
 - All CSS should look like one person wrote it.
 - One level of indentation is achieved with 4 space characters.
@@ -21,71 +21,70 @@ First off, we use Stylus. Read through the documentation here: https://learnboos
 - Quote attribute values in selectors, e.g., input[type="text"]. They’re only optional in some cases, and it’s a good practice for consistency.
 - Avoid specifying units for zero values, e.g., margin: 0; instead of margin: 0px;.
 
-## Declaration order
+##B.E.M - Block Element Modifier
 
-Related property declarations should be grouped together following the order:
+B.E.M. is an easy, flexible and modular methodology we use to structure and organize our CSS at Hook.  It is a strict methodology that makes our css more readable, easier to work with, more robust, explicit and easier to scale. (http://www.getbem.com)
 
-- Positioning
-- Box model
-- Typographic
-- Visual
+Block: Standalone entity that is meaningful on it’s own.
+Examples: header, container, menu, checkbox, input
 
-Positioning comes first because it can remove an element from the normal flow of the document and override box model related styles. The box model comes next as it dictates a component's dimensions and placement.
+Element: A part of a block that has no standalone meaning and is semantically tied to its block.
+Examples: menu item, list item, checkbox caption, header title
 
-Everything else takes place inside the component or without impacting the previous two sections, and thus they come last.
+Modifier: A flag on a block or element.  Use them to change appearance or behavior.
+Examples: disabled, highlighted, checked, fixed, size big, color yellow
 
 ```
-.declaration-order
-  /* Positioning */
-  position absolute
-  top 0
-  right 0
-  bottom 0
-  left 0
-  z-index 100
+.main-dialog {
+  background: #fff;
+  left: 50%;
+  max-width: 550px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
 
-  /* Box-model */
-  display block
-  float right
-  width 100px
-  height 100px
+  &__header {
+    display: block;
+    padding: 25px 60px 0 60px;
+    width: auto;
+  }
 
-  /* Typography */
-  font normal 13px "Helvetica Neue", sans-serif
-  line-height 1.5
-  color #333
-  text-align center
+  &__content {
+    padding: 60px;
+    position: relative;
+  }
 
-  /* Visual */
-  background-color #f5f5f5
-  border 1px solid #e5e5e5
-  border-radius 3px
+  &__footer {
+    padding: 0 60px 25px 60px;
+  }
 
-  /* Misc */
-  opacity 1
+  .__footer--highlight {
+      background: #e71b0f;
+      color: #fff;
+    }
+  }
+```
+
+## Declaration order
+
+CSS declaration order should be alphabetical.  This also happens to fall within google standards which is both convenient and easy for everyone to understand.
+
+```
+.declaration-order {
+  background: #fff;
+  display: block;
+  height: 500px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 500px;
+}
 ```
 
 ## Media query placement
 
-Place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here's a typical setup.
-
-```
-.element
-  style
-.element-avatar
-  style
-.element-selected
-  style
-
-@media (min-width: 480px)
-  .element
-    style
-  .element-avatar
-    style
-  .element-selected
-    style
-
-```
+Place media queries at the end of the document and comment accordingly. Doing so consistently makes it very clear on where responsive styling is located.
 
 ##Shorthand notation
 
@@ -130,5 +129,3 @@ It's also useful to apply many of these same rules when creating Stylus variable
 - Develop a consistent commenting hierarchy.
 - Use consistent white space to your advantage when separating sections of code for scanning larger documents.
 - When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.
-
-
