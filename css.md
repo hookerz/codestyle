@@ -86,7 +86,7 @@ CSS declaration order should be alphabetical.  This also happens to fall within 
 
 Place media queries at the end of the document and comment accordingly. Doing so consistently makes it very clear on where responsive styling is located.
 
-##Shorthand notation
+## Shorthand notation
 
 Strive to limit use of shorthand declarations to instances where you must explicitly set all the available values. Common overused shorthand properties include:
 
