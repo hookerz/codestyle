@@ -21,7 +21,7 @@ First off, we use SCSS. Read through the documentation here: http://sass-lang.co
 - Quote attribute values in selectors, e.g., input[type="text"]. They’re only optional in some cases, and it’s a good practice for consistency.
 - Avoid specifying units for zero values, e.g., margin: 0; instead of margin: 0px;.
 
-##B.E.M - Block Element Modifier
+## B.E.M - Block Element Modifier
 
 B.E.M. is an easy, flexible and modular methodology we use to structure and organize our CSS at Hook.  It is a strict methodology that makes our css more readable, easier to work with, more robust, explicit and easier to scale. (http://www.getbem.com)
 
@@ -99,13 +99,13 @@ Strive to limit use of shorthand declarations to instances where you must explic
 
 Often times we don't need to set all the values a shorthand property represents. For example, HTML headings only set top and bottom margin, so when necessary, only override those two values. Excessive use of shorthand properties often leads to sloppier code with unnecessary overrides and unintended side effects.
 
-##Comments
+## Comments
 
 Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others. Great code comments convey context or purpose. Do not simply reiterate a component or class name.
 
 Be sure to write in complete sentences for larger comments and succinct phrases for general notes.
 
-##Class Names
+## Class Names
 
 - Keep classes lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related class (e.g., .btn and .btn-danger).
 - Avoid excessive and arbitrary shorthand notation. .btn is useful for button, but .s doesn't mean anything.
@@ -116,14 +116,14 @@ Be sure to write in complete sentences for larger comments and succinct phrases 
 
 It's also useful to apply many of these same rules when creating Stylus variable names.
 
-##Selectors
+## Selectors
 
 - Use classes over generic element tag for optimum rendering performance.
 - Avoid using several attribute selectors (e.g., [class^="..."]) on commonly occuring components. Browser performance is - known to be impacted by these.
 - Keep selectors short and strive to limit the number of elements in each selector to three.
 - Scope classes to the closest parent only when necessary (e.g., when not using prefixed classes).
 
-##Organization
+## Organization
 
 - Organize sections of code by component.
 - Develop a consistent commenting hierarchy.
